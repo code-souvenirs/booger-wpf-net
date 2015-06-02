@@ -1,0 +1,19 @@
+﻿<Window x:Class="Jsinh.BoogerWpf.Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        Height="350"
+        Width="525">
+    <Window.DataContext>
+        <Binding Source="{StaticResource Locator}"
+                 Path="Main" />
+    </Window.DataContext>
+    <Grid>
+        <TextBox Text="Test data"
+                 Visibility="{Binding SomeBoolProperty, Converter={StaticResource BooleanToVisibilityExConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Width="90"
+                Height="25"
+                Content="Change"
+                Command="{Binding ChangeValueCommand}" />
+    </Grid>
+</Window>
