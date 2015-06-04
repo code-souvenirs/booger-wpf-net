@@ -32,7 +32,7 @@ namespace Jsinh.BoogerWpf
 
         /// <summary>
         /// Instance of dependency property that indicates whether to inverse convert boolean to Visibility state.
-        /// If <strong>true</strong> then, input value <strong>true</strong> will convert to <strong>Visibility.Hidden</strong> or <strong>Visibility.Collapsed</strong> and input value <strong>false</strong> will yield <strong>Visibility.Visible</strong>.
+        /// <para>If <strong>true</strong> then, input value <strong>true</strong> will convert to <strong>Visibility.Hidden</strong> or <strong>Visibility.Collapsed</strong> and input value <strong>false</strong> will yield <strong>Visibility.Visible</strong>.</para>
         /// </summary>
         public static readonly DependencyProperty ApplyInverseDependency = DependencyProperty.Register("ApplyInverse", typeof(bool), typeof(BooleanToVisibilityExConverter));
 

@@ -9,11 +9,10 @@
                  Path="Main" />
     </Window.DataContext>
     <Grid>
-        <TextBox Text="Test data"
-                 Visibility="{Binding SomeBoolProperty, Converter={StaticResource BooleanToVisibilityExConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Width="90"
+        <TextBox Text="{Binding SomeBoolProperty, Converter={StaticResource CastStyleConverter}}" />
+        <!--<Button Width="90"
                 Height="25"
                 Content="Change"
-                Command="{Binding ChangeValueCommand}" />
+                Command="{Binding ChangeValueCommand}" />-->
     </Grid>
 </Window>

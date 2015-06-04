@@ -20,6 +20,11 @@ namespace Jsinh.BoogerWpf
     public enum CaseStyle
     {
         /// <summary>
+        /// Default option.
+        /// </summary>
+        None,
+
+        /// <summary>
         /// All words in input string will be converted to capital case.
         /// </summary>
         AllCaps,
@@ -30,7 +35,7 @@ namespace Jsinh.BoogerWpf
         AllLower,
 
         /// <summary>
-        /// First letter of the first word within a sentence will be converted to lower case.
+        /// First letter of the first word within a sentence will be converted to lower case and all other words will be .
         /// </summary>
         CamelCase,
 

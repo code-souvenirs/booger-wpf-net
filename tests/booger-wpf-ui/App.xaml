@@ -10,5 +10,6 @@
     <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:Jsinh.BoogerWpf.Test.ViewModel" />
         <boogerWpf:BooleanToVisibilityExConverter x:Key="BooleanToVisibilityExConverter" ApplyInverse="True" UseVisibilityHidden="False" />
       <boogerWpf:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+      <boogerWpf:StringCaseConverter Style="TitleCase" x:Key="CastStyleConverter" />
   </Application.Resources>
 </Application>

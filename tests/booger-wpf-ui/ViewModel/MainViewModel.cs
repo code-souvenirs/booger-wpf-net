@@ -5,21 +5,26 @@ namespace Jsinh.BoogerWpf.Test.ViewModel
 
     public class MainViewModel : ViewModelBase
     {
-        private RelayCommand changeValueCommand;
-        private bool someBoolProperty;
-
-        public RelayCommand ChangeValueCommand
+        public MainViewModel()
         {
-            get
-            {
-                return this.changeValueCommand ?? (this.changeValueCommand = new RelayCommand(() =>
-                {
-                    this.SomeBoolProperty = !this.SomeBoolProperty;
-                }));
-            }
+            this.SomeBoolProperty = "This is JUST a test.";
         }
 
-        public bool SomeBoolProperty
+        ////private RelayCommand changeValueCommand;
+        private string someBoolProperty;
+
+        ////public RelayCommand ChangeValueCommand
+        ////{
+        ////    get
+        ////    {
+        ////        return this.changeValueCommand ?? (this.changeValueCommand = new RelayCommand(() =>
+        ////        {
+        ////            this.SomeBoolProperty = !this.SomeBoolProperty;
+        ////        }));
+        ////    }
+        ////}
+
+        public string SomeBoolProperty
         {
             get
             {
