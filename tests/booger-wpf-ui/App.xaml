@@ -11,5 +11,6 @@
         <boogerWpf:BooleanToVisibilityExConverter x:Key="BooleanToVisibilityExConverter" ApplyInverse="True" UseVisibilityHidden="False" />
       <boogerWpf:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
       <boogerWpf:StringCaseConverter Style="TitleCase" x:Key="CastStyleConverter" />
+      <boogerWpf:StringFormatConverter x:Key="StringFormatConverter" Format="Hello converters from {0}" />
   </Application.Resources>
 </Application>

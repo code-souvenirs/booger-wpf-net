@@ -9,7 +9,7 @@
                  Path="Main" />
     </Window.DataContext>
     <Grid>
-        <TextBox Text="{Binding SomeBoolProperty, Converter={StaticResource CastStyleConverter}}" />
+        <TextBox Text="{Binding SomeBoolProperty, Converter={StaticResource StringFormatConverter}}" />
         <!--<Button Width="90"
                 Height="25"
                 Content="Change"
