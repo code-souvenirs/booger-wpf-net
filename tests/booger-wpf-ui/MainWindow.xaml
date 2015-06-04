@@ -9,7 +9,8 @@
                  Path="Main" />
     </Window.DataContext>
     <Grid>
-        <TextBox Text="{Binding SomeBoolProperty, Converter={StaticResource StringFormatConverter}}" />
+        <ComboBox ItemsSource="{Binding Converter={StaticResource TestingKey}}" Width="200" Height="30"></ComboBox>
+        <!--<TextBox Text="{Binding SomeBoolProperty, Converter={StaticResource StringFormatConverter}}" />-->
         <!--<Button Width="90"
                 Height="25"
                 Content="Change"

@@ -1,6 +1,6 @@
 ﻿#region Copyright Jsinh Booger WPF .NET
 // ************************************************************************************
-// <copyright file="StringFormatConverter.cs" company="Jaspalsinh Chauhan">
+// <copyright file="EnumToListConverter.cs" company="Jaspalsinh Chauhan">
 // Copyright © Jaspalsinh Chauhan 2015. All right reserved.
 // </copyright>
 // ************************************************************************************
@@ -17,42 +17,44 @@ namespace Jsinh.BoogerWpf
     #region Namespace
 
     using System;
+    using System.Collections;
     using System.Globalization;
+    using System.Linq;
     using System.Windows;
     using System.Windows.Data;
 
     #endregion
 
     /// <summary>
-    /// Represents booger for conversion to format a string with input string formatter.
+    /// Represents booger for conversion of enumeration type and its members to bind-able list.
     /// </summary>
-    [ValueConversion(typeof(string), typeof(string))]
-    public sealed class StringFormatConverter : DependencyObject, IValueConverter
+    [ValueConversion(typeof(Enum), typeof(IList))]
+    public sealed class EnumToListConverter : DependencyObject, IValueConverter
     {
         #region Dependency properties
 
         /// <summary>
-        /// Instance of dependency property that indicates the format to be used for input string to apply.
+        /// Instance of dependency property that indicates the type of input enumeration.
         /// </summary>
-        public static readonly DependencyProperty FormatDependency = DependencyProperty.Register("Format", typeof(string), typeof(StringFormatConverter));
+        public static readonly DependencyProperty EnumTypeDependency = DependencyProperty.Register("EnumType", typeof(object), typeof(EnumToListConverter));
 
         #endregion
 
         #region Properties
 
         /// <summary>
-        /// Gets or sets format to be used for input string to apply.
+        /// Gets or sets enumeration type.
         /// </summary>
-        public string Format
+        public Type EnumType
         {
             get
             {
-                return this.GetValue(FormatDependency) as string;
+                return (Type)this.GetValue(EnumTypeDependency);
             }
 
             set
             {
-                this.SetValue(FormatDependency, value);
+                this.SetValue(EnumTypeDependency, value);
             }
         }
 
@@ -67,17 +69,18 @@ namespace Jsinh.BoogerWpf
         /// <param name="targetType">Instance of target type.</param>
         /// <param name="parameter">Convert parameter to use.</param>
         /// <param name="culture">Culture to be used during conversion</param>
-        /// <returns>Returns formatted string value.</returns>
+        /// <returns>Returns converted visibility state from boolean value.</returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (null == value)
+            if (!this.EnumType.IsEnum)
             {
                 return DependencyProperty.UnsetValue;
             }
 
             try
             {
-                return string.Format(culture ?? new CultureInfo("en-US", false), this.Format, value);
+                var enumerationValues = Enum.GetValues(this.EnumType);
+                return (from object item in enumerationValues select item.ToString()).ToList();
             }
             catch (Exception)
             {
@@ -92,10 +95,10 @@ namespace Jsinh.BoogerWpf
         /// <param name="targetType">Instance of target type.</param>
         /// <param name="parameter">Convert parameter to use.</param>
         /// <param name="culture">Culture to be used during conversion</param>
-        /// <returns>Returns formatted string value.</returns>
+        /// <returns>Returns boolean value for input visibility state.</returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            //// Nothing to be done for convert back in this converter.
+            //// You cannot add new values to a ENUM defination at runtime so this would be useless.
             return value;
         }
 

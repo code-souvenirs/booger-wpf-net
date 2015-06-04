@@ -5,12 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              d1P1:Ignorable="d"
              xmlns:d1P1="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:boogerWpf="clr-namespace:Jsinh.BoogerWpf;assembly=Booger.Wpf.Dotnet">
-  <Application.Resources>
-    <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:Jsinh.BoogerWpf.Test.ViewModel" />
-        <boogerWpf:BooleanToVisibilityExConverter x:Key="BooleanToVisibilityExConverter" ApplyInverse="True" UseVisibilityHidden="False" />
-      <boogerWpf:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
-      <boogerWpf:StringCaseConverter Style="TitleCase" x:Key="CastStyleConverter" />
-      <boogerWpf:StringFormatConverter x:Key="StringFormatConverter" Format="Hello converters from {0}" />
-  </Application.Resources>
+             xmlns:boogerWpf="clr-namespace:Jsinh.BoogerWpf;assembly=Booger.Wpf.Dotnet"
+             xmlns:viewModel="clr-namespace:Jsinh.BoogerWpf.Test.ViewModel">
+    <Application.Resources>
+        <vm:ViewModelLocator x:Key="Locator"
+                             d:IsDataSource="True"
+                             xmlns:vm="clr-namespace:Jsinh.BoogerWpf.Test.ViewModel" />
+        <boogerWpf:BooleanToVisibilityExConverter x:Key="BooleanToVisibilityExConverter"
+                                                  ApplyInverse="True"
+                                                  UseVisibilityHidden="False" />
+        <boogerWpf:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+        <boogerWpf:StringCaseConverter Style="TitleCase"
+                                       x:Key="CastStyleConverter" />
+        <boogerWpf:StringFormatConverter x:Key="StringFormatConverter"
+                                         Format="Hello converters from {0}" />
+        <boogerWpf:EnumToListConverter x:Key="TestingKey"
+                                       EnumType="{x:Type viewModel:TestEnum}" />
+    </Application.Resources>
 </Application>

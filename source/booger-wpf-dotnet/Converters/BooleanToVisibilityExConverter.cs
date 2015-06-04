@@ -17,6 +17,7 @@ namespace Jsinh.BoogerWpf
     #region Namespace
 
     using System;
+    using System.Globalization;
     using System.Windows;
     using System.Windows.Data;
 
@@ -89,7 +90,7 @@ namespace Jsinh.BoogerWpf
         /// <param name="parameter">Convert parameter to use.</param>
         /// <param name="culture">Culture to be used during conversion</param>
         /// <returns>Returns converted visibility state from boolean value.</returns>
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             try
             {
@@ -124,7 +125,7 @@ namespace Jsinh.BoogerWpf
         /// <param name="parameter">Convert parameter to use.</param>
         /// <param name="culture">Culture to be used during conversion</param>
         /// <returns>Returns boolean value for input visibility state.</returns>
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var result = false;
             if (value.GetType() != typeof(Visibility))
