@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Jsinh.BoogerWpf</RootNamespace>
-    <AssemblyName>Booger.Wpf.Dotnet</AssemblyName>
+    <AssemblyName>BoogerWpf</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

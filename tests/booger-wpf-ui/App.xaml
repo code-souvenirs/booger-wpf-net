@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              d1P1:Ignorable="d"
              xmlns:d1P1="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:boogerWpf="clr-namespace:Jsinh.BoogerWpf;assembly=Booger.Wpf.Dotnet"
+             xmlns:boogerWpf="clr-namespace:Jsinh.BoogerWpf;assembly=BoogerWpf"
              xmlns:viewModel="clr-namespace:Jsinh.BoogerWpf.Test.ViewModel">
     <Application.Resources>
         <vm:ViewModelLocator x:Key="Locator"
