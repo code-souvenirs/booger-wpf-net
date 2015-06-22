@@ -18,6 +18,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1038EE
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Release", "Release", "{E2937089-5194-4DF4-A66E-A34DD00BEAFE}"
+	ProjectSection(SolutionItems) = preProject
+		source\booger-wpf-dotnet-nuget\Booger.Wpf.0.6.nupkg = source\booger-wpf-dotnet-nuget\Booger.Wpf.0.6.nupkg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
