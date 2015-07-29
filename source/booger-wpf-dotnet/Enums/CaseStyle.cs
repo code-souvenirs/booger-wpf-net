@@ -10,9 +10,7 @@
 // ************************************************************************************
 #endregion
 
-// ReSharper disable CheckNamespace
 namespace Jsinh.BoogerWpf
-// ReSharper restore CheckNamespace
 {
     /// <summary>
     /// Defines a list of all case styles that <seealso cref="StringCaseConverter"/> can support.

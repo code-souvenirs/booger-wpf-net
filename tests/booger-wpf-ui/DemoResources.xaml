@@ -1,0 +1,66 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:boogerWpf="clr-namespace:Jsinh.BoogerWpf;assembly=BoogerWpf"
+                    xmlns:local="clr-namespace:Jsinh.BoogerWpf.Test">
+    <ControlTemplate x:Key="MainWindowControlTemplate"
+                     TargetType="{x:Type local:MainWindow}">
+        <Border>
+            <Border.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}, Path=IsActive}"
+                                     Value="True">
+                            <Setter Property="Background"
+                                    Value="#EBEBEB" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}, Path=IsActive}"
+                                     Value="False">
+                            <Setter Property="Background"
+                                    Value="#EFEFF2" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Resources>
+            <Grid Background="Transparent">
+                <Grid.Style>
+                    <Style TargetType="{x:Type Grid}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                         Value="Maximized">
+                                <Setter Property="Margin"
+                                        Value="9,9,9,9" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <boogerWpf:ChromelessAppButtons Grid.Row="0"
+                                                Margin="0,1,3,0"
+                                                HorizontalAlignment="Right"
+                                                Foreground="Black"
+                                                FontSize="13"
+                                                AppButtonOption="ShowAll"
+                                                AppButtonPadding="6"
+                                                AppExitButtonPadding="18,6,18,6"
+                                                AppButtonInterMargin="1"
+                                                MarginOnMaximize="1,18,12,1"
+                                                ExceptExitBackgroundColor="Transparent"
+                                                ExceptExitHoverBackgroundColor="#FF3665B3"
+                                                ExitBackgroundColor="#FFBCBCBC"
+                                                ExitHoverBackgroundColor="#FFE04343"
+                                                VerticalAlignment="Center" />
+                <ContentPresenter Margin="6"
+                                  Grid.Row="1"
+                                  Content="{TemplateBinding Content}" />
+            </Grid>
+        </Border>
+    </ControlTemplate>
+    <Style x:Key="MainWindowStyle"
+           TargetType="{x:Type local:MainWindow}">
+        <Setter Property="Template"
+                Value="{DynamicResource MainWindowControlTemplate}" />
+    </Style>
+</ResourceDictionary>

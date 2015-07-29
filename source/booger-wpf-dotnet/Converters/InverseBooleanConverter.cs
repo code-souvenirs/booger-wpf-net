@@ -10,9 +10,7 @@
 // ************************************************************************************
 #endregion
 
-// ReSharper disable CheckNamespace
 namespace Jsinh.BoogerWpf
-// ReSharper restore CheckNamespace
 {
     #region Namespace
 

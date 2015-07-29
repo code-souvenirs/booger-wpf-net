@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "booger-wpf-dotnet", "source\booger-wpf-dotnet\booger-wpf-dotnet.csproj", "{C0FF87CD-00C2-459F-BA37-1424A43E5E12}"
 EndProject
@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Release", "Release", "{E293
 		source\booger-wpf-dotnet-nuget\Booger.Wpf.0.6.nupkg = source\booger-wpf-dotnet-nuget\Booger.Wpf.0.6.nupkg
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "booger-wpf-dotnet (net45)", "source\booger-wpf-dotnet (net45)\booger-wpf-dotnet (net45).csproj", "{C329A3C2-E895-4FBF-B34F-32BAEBDB6580}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{1EE15B51-CA72-4CB7-B8FE-20E57F2A7147}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EE15B51-CA72-4CB7-B8FE-20E57F2A7147}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EE15B51-CA72-4CB7-B8FE-20E57F2A7147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C329A3C2-E895-4FBF-B34F-32BAEBDB6580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C329A3C2-E895-4FBF-B34F-32BAEBDB6580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C329A3C2-E895-4FBF-B34F-32BAEBDB6580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C329A3C2-E895-4FBF-B34F-32BAEBDB6580}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +50,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C0FF87CD-00C2-459F-BA37-1424A43E5E12} = {38FE0D7F-B9F9-4813-8AD4-8D7C45D22B5B}
 		{1EE15B51-CA72-4CB7-B8FE-20E57F2A7147} = {4B78B92E-AF1B-4151-9F2C-5767FA4B7387}
+		{C329A3C2-E895-4FBF-B34F-32BAEBDB6580} = {38FE0D7F-B9F9-4813-8AD4-8D7C45D22B5B}
 	EndGlobalSection
 EndGlobal

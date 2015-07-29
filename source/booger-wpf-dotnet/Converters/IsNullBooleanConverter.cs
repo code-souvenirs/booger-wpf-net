@@ -1,6 +1,6 @@
 ﻿#region Copyright Jsinh Booger WPF .NET
 // ************************************************************************************
-// <copyright file="StringFormatConverter.cs" company="Jaspalsinh Chauhan">
+// <copyright file="IsNullBooleanConverter.cs" company="Jaspalsinh Chauhan">
 // Copyright © Jaspalsinh Chauhan 2015. All right reserved.
 // </copyright>
 // ************************************************************************************
@@ -12,45 +12,47 @@
 
 namespace Jsinh.BoogerWpf
 {
-    #region Namespace
-
     using System;
     using System.Globalization;
+    #region Namespace
+
     using System.Windows;
     using System.Windows.Data;
 
     #endregion
 
     /// <summary>
-    /// Represents booger for conversion to format a string with input string formatter.
+    /// Represents booger for any object <strong>IsNull</strong> check. Yeilds true if <see cref="ApplyInverse"/> is false and false if <see cref="ApplyInverse"/> true.
     /// </summary>
-    [ValueConversion(typeof(string), typeof(string))]
-    public sealed class StringFormatConverter : DependencyObject, IValueConverter
+    [ValueConversion(typeof(object), typeof(bool))]
+    public sealed class IsNullBooleanConverter : DependencyObject, IValueConverter
     {
         #region Dependency properties
 
         /// <summary>
-        /// Instance of dependency property that indicates the format to be used for input string to apply.
+        /// Instance of dependency property that indicates whether to inverse comparison for null check result.
+        /// <para>If <strong>true</strong> and input value is <strong>null</strong> will yeild <strong>false</strong>.</para>
+        /// <para>If <strong>false</strong> which is default value for this property and input value is <strong>null</strong> will yield <strong>true</strong>.</para>
         /// </summary>
-        public static readonly DependencyProperty FormatDependency = DependencyProperty.Register("Format", typeof(string), typeof(StringFormatConverter));
+        public static readonly DependencyProperty ApplyInverseDependency = DependencyProperty.Register("ApplyInverse", typeof(bool), typeof(IsNullBooleanConverter), new PropertyMetadata(false));
 
         #endregion
 
         #region Properties
 
         /// <summary>
-        /// Gets or sets format to be used for input string to apply.
+        /// Gets or sets a value indicating whether to inverse convert boolean to Visibility state. If true then, input value "true" will convert to Visibility.Hidden or Visibility.Collapsed and input value "false" will yield Visibility.Visible.
         /// </summary>
-        public string Format
+        public bool ApplyInverse
         {
             get
             {
-                return this.GetValue(FormatDependency) as string;
+                return System.Convert.ToBoolean(this.GetValue(ApplyInverseDependency));
             }
 
             set
             {
-                this.SetValue(FormatDependency, value);
+                this.SetValue(ApplyInverseDependency, value);
             }
         }
 
@@ -65,21 +67,24 @@ namespace Jsinh.BoogerWpf
         /// <param name="targetType">Instance of target type.</param>
         /// <param name="parameter">Convert parameter to use.</param>
         /// <param name="culture">Culture to be used during conversion</param>
-        /// <returns>Returns formatted string value.</returns>
+        /// <returns>Returns converted visibility state from boolean value.</returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (null == value)
+            if (null == value && this.ApplyInverse)
             {
-                return DependencyProperty.UnsetValue;
+                return true;
             }
-
-            try
+            else if (null == value && !this.ApplyInverse)
             {
-                return string.Format(culture ?? new CultureInfo("en-US", false), this.Format, value);
+                return false;
             }
-            catch (Exception)
+            else if (null != value && this.ApplyInverse)
             {
-                return DependencyProperty.UnsetValue;
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 
@@ -90,11 +95,10 @@ namespace Jsinh.BoogerWpf
         /// <param name="targetType">Instance of target type.</param>
         /// <param name="parameter">Convert parameter to use.</param>
         /// <param name="culture">Culture to be used during conversion</param>
-        /// <returns>Returns formatted string value.</returns>
+        /// <returns>Returns boolean value for input visibility state.</returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            //// Nothing to be done for convert back in this converter.
-            return value;
+            throw new NotImplementedException();
         }
 
         #endregion

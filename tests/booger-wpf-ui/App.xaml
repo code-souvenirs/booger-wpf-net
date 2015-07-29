@@ -8,18 +8,24 @@
              xmlns:boogerWpf="clr-namespace:Jsinh.BoogerWpf;assembly=BoogerWpf"
              xmlns:viewModel="clr-namespace:Jsinh.BoogerWpf.Test.ViewModel">
     <Application.Resources>
-        <vm:ViewModelLocator x:Key="Locator"
-                             d:IsDataSource="True"
-                             xmlns:vm="clr-namespace:Jsinh.BoogerWpf.Test.ViewModel" />
-        <boogerWpf:BooleanToVisibilityExConverter x:Key="BooleanToVisibilityExConverter"
-                                                  ApplyInverse="True"
-                                                  UseVisibilityHidden="False" />
-        <boogerWpf:InverseBooleanConverter x:Key="InverseBooleanConverter" />
-        <boogerWpf:StringCaseConverter Style="TitleCase"
-                                       x:Key="CastStyleConverter" />
-        <boogerWpf:StringFormatConverter x:Key="StringFormatConverter"
-                                         Format="Hello converters from {0}" />
-        <boogerWpf:EnumToListConverter x:Key="TestingKey"
-                                       EnumType="{x:Type viewModel:TestEnum}" />
+        <ResourceDictionary>
+            <vm:ViewModelLocator x:Key="Locator"
+                                 d:IsDataSource="True"
+                                 xmlns:vm="clr-namespace:Jsinh.BoogerWpf.Test.ViewModel" />
+            <boogerWpf:BooleanToVisibilityExConverter x:Key="BooleanToVisibilityExConverter"
+                                                      ApplyInverse="True"
+                                                      UseVisibilityHidden="False" />
+            <boogerWpf:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+            <boogerWpf:IsNullBooleanConverter x:Key="IsNullBooleanCoverter" />
+            <boogerWpf:StringCaseConverter Style="TitleCase"
+                                           x:Key="CastStyleConverter" />
+            <boogerWpf:StringFormatConverter x:Key="StringFormatConverter"
+                                             Format="Hello converters from {0}" />
+            <boogerWpf:EnumToListConverter x:Key="TestingKey"
+                                           EnumType="{x:Type viewModel:TestEnum}" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DemoResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

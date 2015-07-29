@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C0FF87CD-00C2-459F-BA37-1424A43E5E12}</ProjectGuid>
+    <ProjectGuid>{C329A3C2-E895-4FBF-B34F-32BAEBDB6580}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Jsinh.BoogerWpf</RootNamespace>
     <AssemblyName>BoogerWpf</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -29,7 +29,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\BoogerWpf.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -40,23 +39,43 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Converters\BooleanToVisibilityExConverter.cs" />
-    <Compile Include="Converters\EnumToListConverter.cs" />
-    <Compile Include="Converters\InverseBooleanConverter.cs" />
-    <Compile Include="Converters\IsNullBooleanConverter.cs" />
-    <Compile Include="Converters\StringCaseConverter.cs" />
-    <Compile Include="Converters\StringFormatConverter.cs" />
-    <Compile Include="Enums\CaseStyle.cs" />
-    <Compile Include="Enums\ChromelessAppButtonOption.cs" />
-    <Compile Include="Front\ChromelessAppButtons.xaml.cs">
+    <Compile Include="..\booger-wpf-dotnet\Converters\BooleanToVisibilityExConverter.cs">
+      <Link>Converters\BooleanToVisibilityExConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\booger-wpf-dotnet\Converters\EnumToListConverter.cs">
+      <Link>Converters\EnumToListConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\booger-wpf-dotnet\Converters\InverseBooleanConverter.cs">
+      <Link>Converters\InverseBooleanConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\booger-wpf-dotnet\Converters\IsNullBooleanConverter.cs">
+      <Link>Converters\IsNullBooleanConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\booger-wpf-dotnet\Converters\StringCaseConverter.cs">
+      <Link>Converters\StringCaseConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\booger-wpf-dotnet\Converters\StringFormatConverter.cs">
+      <Link>Converters\StringFormatConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\booger-wpf-dotnet\Enums\CaseStyle.cs">
+      <Link>Enums\CaseStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\booger-wpf-dotnet\Enums\ChromelessAppButtonOption.cs">
+      <Link>Enums\ChromelessAppButtonOption.cs</Link>
+    </Compile>
+    <Compile Include="..\booger-wpf-dotnet\Front\ChromelessAppButtons.xaml.cs">
+      <Link>Front\ChromelessAppButtons.xaml.cs</Link>
       <DependentUpon>ChromelessAppButtons.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Front\ChromelessBehavior.cs" />
+    <Compile Include="Front\ChromelessSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Front\ChromelessAppButtons.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="..\booger-wpf-dotnet\Front\ChromelessAppButtons.xaml">
+      <Link>Front\ChromelessAppButtons.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

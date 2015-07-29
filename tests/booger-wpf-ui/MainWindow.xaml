@@ -1,24 +1,28 @@
 ﻿<Window x:Class="Jsinh.BoogerWpf.Test.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:boogerWpf="clr-namespace:Jsinh.BoogerWpf;assembly=BoogerWpf"
         xmlns:viewModel="clr-namespace:Jsinh.BoogerWpf.Test.ViewModel"
         Title="MainWindow"
-        Height="350"
-        Width="525">
+        MinWidth="1024"
+        MinHeight="768"
+        WindowState="Normal"
+        MouseDown="WindowOnMouseDown"
+        Style="{DynamicResource MainWindowStyle}">
+    <boogerWpf:ChromelessBehavior.Apply>
+        <boogerWpf:ChromelessSettings ResizeThickness="3" />
+    </boogerWpf:ChromelessBehavior.Apply>
     <Window.DataContext>
         <Binding Source="{StaticResource Locator}"
                  Path="Main" />
     </Window.DataContext>
     <Grid>
-        <ComboBox Width="200" Height="30">
+        <ComboBox Width="200"
+                  Height="30">
             <ComboBox.ItemsSource>
-                <Binding Source="{x:Type viewModel:TestEnum}" Converter="{StaticResource TestingKey}"></Binding>
+                <Binding Source="{x:Type viewModel:TestEnum}"
+                         Converter="{StaticResource TestingKey}"></Binding>
             </ComboBox.ItemsSource>
         </ComboBox>
-        <!--<TextBox Text="{Binding SomeBoolProperty, Converter={StaticResource StringFormatConverter}}" />-->
-        <!--<Button Width="90"
-                Height="25"
-                Content="Change"
-                Command="{Binding ChangeValueCommand}" />-->
     </Grid>
 </Window>
